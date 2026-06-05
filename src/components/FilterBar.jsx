@@ -1,5 +1,5 @@
 
 function FilterBar () {
-    return <div>Filter Bar</div>
+    return 
 }
 export default FilterBar;

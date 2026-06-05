@@ -1,5 +1,5 @@
 
 function DashBoard () {
-    return <div>Dash Board</div>
+    return 
 }
 export default DashBoard;

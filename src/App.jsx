@@ -1,22 +1,20 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import FilterBar from "./components/FilterBar";
-import Dashboard from "./components/Dashboard";
+import DashBoard from "./components/DashBoard";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  function addTask(newTask) {
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <>
-      <h1>TimeBlock</h1>
-      <p>Plan your day intelligently</p>
-
-      <TaskForm />
-
-      <FilterBar />
-
-      <Dashboard />
-
+      <TaskForm addTask={addTask} />
       <TaskList />
     </>
   );
