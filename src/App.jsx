@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <TaskForm addTask={addTask} />
-      <TaskList />
+     <TaskList tasks={tasks} />
     </>
   );
 }

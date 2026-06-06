@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TaskForm() {
+function TaskForm({addTask}) {
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
   const [priority, setPriority] = useState("");
@@ -45,7 +45,7 @@ function TaskForm() {
       completed: false,
     };
 
-    console.log(newTask);
+    addTask(newTask);
   }
 
   return (
@@ -66,11 +66,7 @@ function TaskForm() {
 
       <label htmlFor="duration">Duration</label>
       <br />
-      <select
-        id="duration"
-        value={duration}
-        onChange={handleDurationChange}
-      >
+      <select id="duration" value={duration} onChange={handleDurationChange}>
         <option value="">Select Duration</option>
         <option value="30 Minutes">30 Minutes</option>
         <option value="1 Hour">1 Hour</option>
@@ -84,9 +80,7 @@ function TaskForm() {
           <br />
           <br />
 
-          <label htmlFor="customDurationValue">
-            Custom Duration
-          </label>
+          <label htmlFor="customDurationValue">Custom Duration</label>
           <br />
           <input
             id="customDurationValue"
@@ -117,11 +111,7 @@ function TaskForm() {
 
       <label htmlFor="priority">Priority</label>
       <br />
-      <select
-        id="priority"
-        value={priority}
-        onChange={handlePriorityChange}
-      >
+      <select id="priority" value={priority} onChange={handlePriorityChange}>
         <option value="">Select Priority</option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
@@ -131,9 +121,7 @@ function TaskForm() {
       <br />
       <br />
 
-      <button onClick={handleAddTask}>
-        Add Task
-      </button>
+      <button onClick={handleAddTask}>Add Task</button>
 
       <hr />
 
