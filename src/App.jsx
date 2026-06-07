@@ -12,10 +12,32 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  function deleteTask(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
+  function toggleTask(id) {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        }
+
+        return task;
+      }),
+    );
+  }
+
   return (
     <>
       <TaskForm addTask={addTask} />
-     <TaskList tasks={tasks} />
+      <TaskList tasks={tasks}
+       deleteTask={deleteTask} 
+        toggleTask={toggleTask} />
+      
     </>
   );
 }
