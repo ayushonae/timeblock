@@ -1,11 +1,28 @@
+function FilterBar({ filter, setFilter }) {
+  return (
+    <div className="filter-container">
+      <button
+        className={filter === "All" ? "active-filter" : ""}
+        onClick={() => setFilter("All")}
+      >
+        All
+      </button>
 
-function FilterBar ({filter, setFilter}) {
-    return (
-        <div>
-            <button onClick={() => setFilter ("All") }>All</button>
-            <button onClick={() => setFilter ("Completed")}>Completed</button>
-            <button onClick={() => setFilter ("Pending")}>Pending</button>
-        </div>
-    )
+      <button
+        className={filter === "Completed" ? "active-filter" : ""}
+        onClick={() => setFilter("Completed")}
+      >
+        Completed
+      </button>
+
+      <button
+        className={filter === "Pending" ? "active-filter" : ""}
+        onClick={() => setFilter("Pending")}
+      >
+        Pending
+      </button>
+    </div>
+  );
 }
+
 export default FilterBar;

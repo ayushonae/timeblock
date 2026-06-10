@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TaskForm({addTask}) {
+function TaskForm({ addTask }) {
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
   const [priority, setPriority] = useState("");
@@ -46,10 +46,16 @@ function TaskForm({addTask}) {
     };
 
     addTask(newTask);
+
+    setTitle("");
+    setDuration("");
+    setPriority("");
+    setCustomDurationValue("");
+    setCustomDurationUnit("Minutes");
   }
 
   return (
-    <div>
+    <div className="card">
       <h2>Task Form</h2>
 
       <label htmlFor="title">Task Name</label>
@@ -110,7 +116,7 @@ function TaskForm({addTask}) {
       <br />
 
       <label htmlFor="priority">Priority</label>
-      <br />
+
       <select id="priority" value={priority} onChange={handlePriorityChange}>
         <option value="">Select Priority</option>
         <option value="High">High</option>
@@ -118,23 +124,7 @@ function TaskForm({addTask}) {
         <option value="Low">Low</option>
       </select>
 
-      <br />
-      <br />
-
       <button onClick={handleAddTask}>Add Task</button>
-
-      <hr />
-
-      <p>Title: {title}</p>
-      <p>Duration: {duration}</p>
-
-      {duration === "Custom" && (
-        <p>
-          Custom Duration: {customDurationValue} {customDurationUnit}
-        </p>
-      )}
-
-      <p>Priority: {priority}</p>
     </div>
   );
 }
